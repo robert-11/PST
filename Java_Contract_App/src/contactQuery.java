@@ -11,9 +11,8 @@ import javax.swing.JOptionPane;
 
 public class contactQuery {
     
-    public boolean insertContact(contact cont)
+    public void insertContact(contact cont)
     {
-        boolean contactIsCreated = true;
         Connection con = null;
         try {
             con = myConnection.getConnection();
@@ -23,31 +22,100 @@ public class contactQuery {
         PreparedStatement ps;
         
         try {
-            ps = con.prepareStatement("INSERT INTO `mycontact`(`fname`, `lname`, `email`, `phone`, `inmatric`, `dataitp`, `userid`) VALUES (?,?,?,?,?,?,?)");
+            ps = con.prepareStatement("INSERT INTO `mycontact`(`fname`, `lname`, `phone`, `email`, `inmatric`, `dataitp`, `status`, `userid`) VALUES (?,?,?,?,?,?,?,?)");
             ps.setString(1, cont.getFname());
             ps.setString(2, cont.getLname());
             ps.setString(3, cont.getPhone());
             ps.setString(4, cont.getEmail());
             ps.setString(5, cont.getInmatric());
             ps.setString(6, cont.getDataitp());
-            ps.setInt(7, cont.getUid());
+            ps.setString(7, cont.getStatus());
+            ps.setInt(8, cont.getUid());
             
             if(ps.executeUpdate() !=0){
                 JOptionPane.showMessageDialog(null, "New Contact Added");
-                contactIsCreated = true;
+                
             }else{
                 JOptionPane.showMessageDialog(null, "Something Wrong");
-                contactIsCreated = false;
+                
             }
             
             
         } catch (SQLException ex) {
             Logger.getLogger(contactQuery.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return contactIsCreated;
+
     }
     
-    public ArrayList<contact> contactList(){
+    public void updateContact(contact cont)
+    {
+        Connection con = null;
+        try {
+            con = myConnection.getConnection();
+        } catch (SQLException ex) {
+            Logger.getLogger(contactQuery.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        PreparedStatement ps;
+        String updateQuery = "UPDATE `mycontact` SET `fname`=?,`lname`=?,`phone`=?,`email`=?,`inmatric`=?,`dataitp`=?, `status`=? WHERE `id` = ?";
+        
+        try {
+            ps = con.prepareStatement(updateQuery);
+            ps.setString(1, cont.getFname());
+            ps.setString(2, cont.getLname());
+            ps.setString(3, cont.getPhone());
+            ps.setString(4, cont.getEmail());
+            ps.setString(5, cont.getInmatric());
+            ps.setString(6, cont.getDataitp());
+            ps.setString(7, cont.getStatus());
+            ps.setInt(8, cont.getCid());
+            
+            if(ps.executeUpdate() !=0){
+                JOptionPane.showMessageDialog(null, "Contact Data Edited");
+                
+            }else{
+                JOptionPane.showMessageDialog(null, "Something Wrong");
+                
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(contactQuery.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
+    public void deleteContact(int cid)
+    {
+        Connection con = null;
+        try {
+            con = myConnection.getConnection();
+        } catch (SQLException ex) {
+            Logger.getLogger(contactQuery.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        PreparedStatement ps;
+        
+        try {
+            ps = con.prepareStatement("DELETE FROM `mycontact` WHERE `id` = ?");
+            ps.setInt(1, cid);
+
+            
+            if(ps.executeUpdate() !=0){
+                JOptionPane.showMessageDialog(null, "Contact Deleted");
+                
+            }else{
+                JOptionPane.showMessageDialog(null, "Something Wrong");
+                
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(contactQuery.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
+    //crearea listei de contacte
+    public ArrayList<contact> contactList( int userId){
         ArrayList<contact> clist = new ArrayList<contact>();
         
         Connection con = null;
@@ -62,7 +130,7 @@ public class contactQuery {
         
         try {
             st = con.createStatement();
-            rs = st.executeQuery("SELECT `id`, `fname`, `lname`, `email`, `phone`, `inmatric`, `dataitp` FROM `mycontact` ");
+            rs = st.executeQuery("SELECT `id`, `fname`, `lname`, `phone`, `email`, `inmatric`, `dataitp`, `status` FROM `mycontact` ");
             
             contact ct;
             
@@ -74,7 +142,8 @@ public class contactQuery {
                         rs.getString("email"),
                         rs.getString("inmatric"),
                         rs.getString("dataitp"),
-                        0);    
+                        rs.getString("status"),
+                        userId);    
                 
                 clist.add(ct);
             }

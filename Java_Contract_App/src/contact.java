@@ -6,11 +6,12 @@ class contact {
     private String email;
     private String inmatric;
     private String dataitp;
+    private String status;
     private int uid;
 
     public contact() {}
     
-    public contact(Integer cid, String fname, String lname, String phone, String email, String inmatric, String dataitp, int uid) {
+    public contact(Integer cid, String fname, String lname, String phone, String email, String inmatric, String dataitp, String status, int uid) {
         this.cid = cid;
         this.fname = fname;
         this.lname = lname;
@@ -18,6 +19,7 @@ class contact {
         this.email = email;
         this.inmatric = inmatric;
         this.dataitp = dataitp;
+        this.status = status;
         this.uid = uid;
     }
 
@@ -77,7 +79,15 @@ class contact {
         this.dataitp = dataitp;
     }
 
-    public int getUid() {
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    
+        public int getUid() {
         return uid;
     }
 

@@ -2,6 +2,7 @@
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
 
@@ -20,6 +21,7 @@ public class MyContactsForm extends javax.swing.JFrame {
     /**
      * Creates new form MyContactsForm
      */
+    public static int currentUserId;
     public MyContactsForm() {
         initComponents();
         populateJtable();
@@ -61,7 +63,13 @@ public class MyContactsForm extends javax.swing.JFrame {
         jTextFieldDataitp = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButtonEditContact = new javax.swing.JButton();
+        jButtonDeleteContact = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jTextFieldId = new javax.swing.JTextField();
         jButtonAddContact = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        jComboBoxStatus = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,13 +109,13 @@ public class MyContactsForm extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(236, 240, 241));
         jLabel6.setText("Last Name:");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(10, 80, 110, 40);
+        jLabel6.setBounds(20, 100, 110, 40);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(236, 240, 241));
         jLabel7.setText("First Name:");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(10, 40, 110, 40);
+        jLabel7.setBounds(20, 60, 110, 40);
 
         jTextFieldLName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextFieldLName.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +124,7 @@ public class MyContactsForm extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldLName);
-        jTextFieldLName.setBounds(150, 80, 220, 30);
+        jTextFieldLName.setBounds(160, 100, 220, 30);
 
         jTextFieldFName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextFieldFName.addActionListener(new java.awt.event.ActionListener() {
@@ -125,13 +133,13 @@ public class MyContactsForm extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldFName);
-        jTextFieldFName.setBounds(150, 40, 220, 30);
+        jTextFieldFName.setBounds(160, 60, 220, 30);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(236, 240, 241));
         jLabel8.setText("Email");
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(10, 180, 110, 40);
+        jLabel8.setBounds(20, 200, 110, 40);
 
         jTextFieldEmail.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -140,7 +148,7 @@ public class MyContactsForm extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldEmail);
-        jTextFieldEmail.setBounds(150, 180, 220, 30);
+        jTextFieldEmail.setBounds(160, 200, 220, 30);
 
         jTextFieldPhone.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextFieldPhone.addActionListener(new java.awt.event.ActionListener() {
@@ -149,19 +157,19 @@ public class MyContactsForm extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldPhone);
-        jTextFieldPhone.setBounds(150, 140, 220, 30);
+        jTextFieldPhone.setBounds(160, 160, 220, 30);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(236, 240, 241));
         jLabel9.setText("Phone");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(10, 140, 110, 40);
+        jLabel9.setBounds(20, 160, 110, 40);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(236, 240, 241));
         jLabel10.setText("Nr. inmatriculare:");
         jPanel2.add(jLabel10);
-        jLabel10.setBounds(530, 40, 170, 40);
+        jLabel10.setBounds(590, 40, 170, 40);
 
         jTextFieldInmatric.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextFieldInmatric.addActionListener(new java.awt.event.ActionListener() {
@@ -170,13 +178,13 @@ public class MyContactsForm extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldInmatric);
-        jTextFieldInmatric.setBounds(720, 40, 220, 30);
+        jTextFieldInmatric.setBounds(780, 40, 220, 30);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(236, 240, 241));
-        jLabel11.setText("Data ITP:");
+        jLabel11.setText("Status:");
         jPanel2.add(jLabel11);
-        jLabel11.setBounds(530, 80, 170, 40);
+        jLabel11.setBounds(590, 120, 170, 40);
 
         jTextFieldDataitp.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextFieldDataitp.addActionListener(new java.awt.event.ActionListener() {
@@ -185,7 +193,7 @@ public class MyContactsForm extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldDataitp);
-        jTextFieldDataitp.setBounds(720, 80, 220, 30);
+        jTextFieldDataitp.setBounds(780, 80, 220, 30);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -198,10 +206,50 @@ public class MyContactsForm extends javax.swing.JFrame {
 
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jPanel2.add(jScrollPane1);
         jScrollPane1.setBounds(10, 250, 1120, 330);
+
+        jButtonEditContact.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButtonEditContact.setText("Edit");
+        jButtonEditContact.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditContactActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonEditContact);
+        jButtonEditContact.setBounds(740, 200, 110, 30);
+
+        jButtonDeleteContact.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButtonDeleteContact.setText("Delete");
+        jButtonDeleteContact.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteContactActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonDeleteContact);
+        jButtonDeleteContact.setBounds(590, 200, 110, 30);
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(236, 240, 241));
+        jLabel12.setText("ID:");
+        jPanel2.add(jLabel12);
+        jLabel12.setBounds(20, 20, 110, 40);
+
+        jTextFieldId.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTextFieldId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldIdActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jTextFieldId);
+        jTextFieldId.setBounds(160, 20, 220, 30);
 
         jButtonAddContact.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButtonAddContact.setText("Add");
@@ -211,7 +259,19 @@ public class MyContactsForm extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButtonAddContact);
-        jButtonAddContact.setBounds(680, 150, 110, 30);
+        jButtonAddContact.setBounds(890, 200, 110, 30);
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(236, 240, 241));
+        jLabel13.setText("Data ITP:");
+        jPanel2.add(jLabel13);
+        jLabel13.setBounds(590, 80, 170, 40);
+
+        jComboBoxStatus.setEditable(true);
+        jComboBoxStatus.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Valid", "Expirat" }));
+        jPanel2.add(jComboBoxStatus);
+        jComboBoxStatus.setBounds(780, 120, 220, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -236,12 +296,11 @@ public class MyContactsForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void populateJtable(){
-        
-        
+                
         contactQuery cq = new contactQuery();
-        ArrayList<contact> ctList = cq.contactList();
-        String[] colNames = {"ID","FIRST NAME","LAST NAME","PHONE","EMAIL","NR. INMATRICULARE","DATA ITP"};
-        Object[][] rows = new Object[ctList.size()][7] ;
+        ArrayList<contact> ctList = cq.contactList(currentUserId);
+        String[] colNames = {"ID","FIRST NAME","LAST NAME","PHONE","EMAIL","NR. INMATRICULARE","DATA ITP","STATUS"};
+        Object[][] rows = new Object[ctList.size()][8] ;
         
         for(int i = 0; i < ctList.size(); i++){
             rows[i][0] = ctList.get(i).getCid();
@@ -251,8 +310,8 @@ public class MyContactsForm extends javax.swing.JFrame {
             rows[i][4] = ctList.get(i).getEmail();
             rows[i][5] = ctList.get(i).getInmatric();
             rows[i][6] = ctList.get(i).getDataitp();
-            
-            
+            rows[i][7] = ctList.get(i).getStatus();
+                        
         }
         
         MyModel mmd = new MyModel(rows, colNames);
@@ -286,6 +345,51 @@ public class MyContactsForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldDataitpActionPerformed
 
+    private void jButtonEditContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditContactActionPerformed
+        int id = Integer.valueOf(jTextFieldId.getText());
+        String fname = jTextFieldFName.getText();
+        String lname = jTextFieldLName.getText();
+        String phone = jTextFieldPhone.getText();
+        String email = jTextFieldEmail.getText();
+        String inmatric = jTextFieldInmatric.getText();
+        String dataitp = jTextFieldDataitp.getText();
+        String status = jComboBoxStatus.getSelectedItem().toString();
+        
+        contact c = new contact(id, fname, lname, phone, email, inmatric, dataitp, status, currentUserId);
+        contactQuery cq = new contactQuery();
+        cq.updateContact(c);
+        refreshJtable();
+    }//GEN-LAST:event_jButtonEditContactActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        //afisare date selectate din tabel
+        
+        int rowIndex = jTable1.getSelectedRow();
+        jTextFieldId.setText(jTable1.getValueAt(rowIndex,0).toString());
+        
+        jTextFieldFName.setText(jTable1.getValueAt(rowIndex,1).toString());
+        jTextFieldLName.setText(jTable1.getValueAt(rowIndex,2).toString());
+        
+        jTextFieldPhone.setText(jTable1.getValueAt(rowIndex,3).toString());
+        jTextFieldEmail.setText(jTable1.getValueAt(rowIndex,4).toString());
+        jTextFieldInmatric.setText(jTable1.getValueAt(rowIndex,5).toString());
+        jTextFieldDataitp.setText(jTable1.getValueAt(rowIndex,6).toString());
+        
+        jComboBoxStatus.setSelectedItem(jTable1.getValueAt(rowIndex,7));
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jButtonDeleteContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteContactActionPerformed
+        int id = Integer.valueOf(jTextFieldId.getText());
+        contactQuery cq = new contactQuery();
+        cq.deleteContact(id);
+        refreshJtable();
+        clearFields();
+    }//GEN-LAST:event_jButtonDeleteContactActionPerformed
+
+    private void jTextFieldIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldIdActionPerformed
+
     private void jButtonAddContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddContactActionPerformed
         
         String fname = jTextFieldFName.getText();
@@ -294,12 +398,33 @@ public class MyContactsForm extends javax.swing.JFrame {
         String email = jTextFieldEmail.getText();
         String inmatric = jTextFieldInmatric.getText();
         String dataitp = jTextFieldDataitp.getText();
+        String status = jComboBoxStatus.getSelectedItem().toString();
         
-        contact c = new contact(null, fname, lname, phone, email, inmatric, dataitp, 0);
+        contact c = new contact(null, fname, lname, phone, email, inmatric, dataitp, status, currentUserId);
         contactQuery cq = new contactQuery();
         cq.insertContact(c);
+        refreshJtable();
+        clearFields();
     }//GEN-LAST:event_jButtonAddContactActionPerformed
 
+    public void refreshJtable()
+    {
+        jTable1.setModel(new DefaultTableModel());
+        populateJtable();
+    }
+    
+    public void clearFields()
+    {
+        jTextFieldId.setText("");
+        jTextFieldFName.setText("");
+        jTextFieldLName.setText("");
+        jTextFieldPhone.setText("");
+        jTextFieldEmail.setText("");
+        jTextFieldInmatric.setText("");
+        jTextFieldDataitp.setText("");
+        jComboBoxStatus.setSelectedIndex(0);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -337,9 +462,14 @@ public class MyContactsForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAddContact;
+    private javax.swing.JButton jButtonDeleteContact;
+    private javax.swing.JButton jButtonEditContact;
+    private javax.swing.JComboBox<String> jComboBoxStatus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -352,6 +482,7 @@ public class MyContactsForm extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldDataitp;
     private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldFName;
+    private javax.swing.JTextField jTextFieldId;
     private javax.swing.JTextField jTextFieldInmatric;
     private javax.swing.JTextField jTextFieldLName;
     private javax.swing.JTextField jTextFieldPhone;

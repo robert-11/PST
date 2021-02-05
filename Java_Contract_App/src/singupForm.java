@@ -60,23 +60,6 @@ public class singupForm extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Create New Account");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel1)
-                .addContainerGap(192, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1)
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
-
         jPanel2.setBackground(new java.awt.Color(44, 62, 80));
         jPanel2.setLayout(null);
 
@@ -84,13 +67,13 @@ public class singupForm extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(236, 240, 241));
         jLabel2.setText("Last Name:");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(10, 80, 110, 40);
+        jLabel2.setBounds(40, 80, 110, 40);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(236, 240, 241));
         jLabel3.setText("First Name:");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(10, 40, 110, 40);
+        jLabel3.setBounds(40, 40, 110, 40);
 
         jTextFieldLName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextFieldLName.addActionListener(new java.awt.event.ActionListener() {
@@ -99,7 +82,7 @@ public class singupForm extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldLName);
-        jTextFieldLName.setBounds(150, 80, 220, 30);
+        jTextFieldLName.setBounds(180, 80, 220, 30);
 
         jButtonCancel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButtonCancel.setText("Cancel");
@@ -109,7 +92,7 @@ public class singupForm extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButtonCancel);
-        jButtonCancel.setBounds(90, 370, 110, 30);
+        jButtonCancel.setBounds(90, 290, 110, 30);
 
         jButtonCreate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButtonCreate.setText("Singup");
@@ -119,7 +102,7 @@ public class singupForm extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButtonCreate);
-        jButtonCreate.setBounds(230, 370, 110, 30);
+        jButtonCreate.setBounds(230, 290, 110, 30);
 
         jLabelCreateAccount.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabelCreateAccount.setForeground(new java.awt.Color(236, 240, 241));
@@ -131,7 +114,7 @@ public class singupForm extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jLabelCreateAccount);
-        jLabelCreateAccount.setBounds(130, 410, 170, 30);
+        jLabelCreateAccount.setBounds(130, 330, 170, 30);
 
         jTextFieldUsername.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextFieldUsername.addActionListener(new java.awt.event.ActionListener() {
@@ -140,33 +123,33 @@ public class singupForm extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldUsername);
-        jTextFieldUsername.setBounds(150, 140, 220, 30);
+        jTextFieldUsername.setBounds(180, 140, 220, 30);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(236, 240, 241));
         jLabel4.setText("Username:");
         jPanel2.add(jLabel4);
-        jLabel4.setBounds(10, 140, 100, 40);
+        jLabel4.setBounds(40, 140, 100, 40);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(236, 240, 241));
         jLabel5.setText("Password:");
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(10, 180, 100, 40);
+        jLabel5.setBounds(40, 180, 100, 40);
 
         jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jPanel2.add(jPasswordField1);
-        jPasswordField1.setBounds(150, 180, 220, 30);
+        jPasswordField1.setBounds(180, 180, 220, 30);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(236, 240, 241));
         jLabel6.setText("Confirm Pass:");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(10, 220, 130, 40);
+        jLabel6.setBounds(40, 220, 130, 40);
 
         jPasswordField2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jPanel2.add(jPasswordField2);
-        jPasswordField2.setBounds(150, 220, 220, 30);
+        jPasswordField2.setBounds(180, 220, 220, 30);
 
         jTextFieldFName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextFieldFName.addActionListener(new java.awt.event.ActionListener() {
@@ -175,21 +158,38 @@ public class singupForm extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextFieldFName);
-        jTextFieldFName.setBounds(150, 40, 220, 30);
+        jTextFieldFName.setBounds(180, 40, 220, 30);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
